@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: issue-management-service
+#state of the Service
+spec:
+  #Service will route traffic to Pods that have a label with app: user-management-service
+  selector:
+    app: issue-management-service
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
