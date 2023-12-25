@@ -17,6 +17,9 @@ public class GithubIssueDto {
     @JsonProperty("title")
     private String title;
 
+    @JsonProperty("author_association")
+    private String author_association;
+
     @JsonProperty("created_at")
     private String created_at;
 

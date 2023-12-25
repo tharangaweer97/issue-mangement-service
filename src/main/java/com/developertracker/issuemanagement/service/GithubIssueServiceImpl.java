@@ -51,6 +51,7 @@ public class GithubIssueServiceImpl implements GithubIssueService {
     private GithubIssue generateGithubIssueObject(GithubIssueDto githubIssueDto) {
         return GithubIssue.builder()
                 .userName(githubIssueDto.getUserDto().getLogin())
+                .author_association(githubIssueDto.getAuthor_association())
                 .title(githubIssueDto.getTitle())
                 .createdAt(githubIssueDto.getCreated_at())
                 .updatedAt(githubIssueDto.getUpdated_at())

@@ -18,6 +18,8 @@ public class GithubIssue {
     @Id
     private String userName;
 
+    private String author_association;
+
     private String title;
 
     private String createdAt;
