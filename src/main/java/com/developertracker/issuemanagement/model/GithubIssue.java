@@ -16,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class GithubIssue {
 
     @Id
+    private String id;
     private String userName;
 
     private String author_association;
