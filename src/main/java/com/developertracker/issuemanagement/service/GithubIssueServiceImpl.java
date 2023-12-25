@@ -1,6 +1,7 @@
 package com.developertracker.issuemanagement.service;
 
 import com.developertracker.issuemanagement.dto.GithubIssueDto;
+import com.developertracker.issuemanagement.dto.IssueDetailsDto;
 import com.developertracker.issuemanagement.model.GithubIssue;
 import com.developertracker.issuemanagement.repository.GithubIssueRepository;
 import com.developertracker.issuemanagement.service.external.GithubExternalClient;
@@ -40,16 +41,26 @@ public class GithubIssueServiceImpl implements GithubIssueService {
         return this.githubIssueRepository.findAll();
     }
 
+    @Override
+    public IssueDetailsDto getAllIssuesByUserName(String userName) {
+        List<GithubIssue> githubIssues = this.githubIssueRepository.findAllByUserName(userName.trim());
+        return IssueDetailsDto.builder().issueCount(githubIssues.size()).userIssueList(githubIssues).build();
+    }
+
+
     private GithubIssue generateGithubIssueObject(GithubIssueDto githubIssueDto) {
         return GithubIssue.builder()
-                .gitHubId(githubIssueDto.getId())
-                .login(githubIssueDto.getLogin())
-                .contributions(githubIssueDto.getContributions())
-                .type(githubIssueDto.getType())
-                .siteAdmin(githubIssueDto.isSiteAdmin())
-                .reposUrl(githubIssueDto.getReposUrl())
-                .nodeId(githubIssueDto.getNodeId())
+                .userName(githubIssueDto.getUserDto().getLogin())
+                .title(githubIssueDto.getTitle())
+                .createdAt(githubIssueDto.getCreated_at())
+                .updatedAt(githubIssueDto.getUpdated_at())
+                .type(githubIssueDto.getUserDto().getType())
                 .build();
+
+
+
     }
 
 }
+
+

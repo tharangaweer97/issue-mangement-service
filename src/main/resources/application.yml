@@ -5,7 +5,7 @@ server:
     context-path: /api/v1/issue-management-service
 
 github:
-  issue-detail-url: https://api.github.com/repos/EthicalML/awesome-production-machine-learning/contributors
+  issue-detail-url: https://api.github.com/repos/EthicalML/awesome-production-machine-learning/issues
 
 spring:
   data:

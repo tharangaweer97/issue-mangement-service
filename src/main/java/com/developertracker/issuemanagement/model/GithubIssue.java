@@ -16,19 +16,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class GithubIssue {
 
     @Id
-    private String id;
+    private String userName;
 
-    private String login;
+    private String title;
 
-    private int gitHubId;
+    private String createdAt;
 
-    private String nodeId;
-
-    private String reposUrl;
+    private String updatedAt;
 
     private String type;
 
-    private boolean siteAdmin;
-
-    private int contributions;
 }
